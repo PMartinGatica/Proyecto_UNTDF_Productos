@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cargar producto</title>
+	<meta charset="utf-8">
+	<meta name="keywords" content="super, cargar">
+	<meta name="author" content="Luis Simon">
+	<meta name="description" content="esta pagina contiene formulario para la carga de productos">
+
+	<!--<link rel="stylesheet" href="">-->
+	<link rel="shortcut icon" href="images/icono.png" type="images/icono.png"> 
+</head>
+
+<body>
+	<h1>Carga de Productos</h1>
+	<div>
+		<div>
+			<label>Título <br><input type="text" id="titulo" name="titulo" placeholder="Nombre de producto"></label>
+			<br><br>
+			<label>Imágen <br><input type="file" id="imageProd" name="imageProd"></label>
+			<br><br>	
+			<label>Tipo de producto <br>
+				<select>
+					<option value="verdura">Frutas y Verduras</option>
+					<option value="carne">Carnes</option>
+					<option value="lacteo">Lacteos</option>
+					<option value="limpieza">Articulos de Limpieza</option>
+					<option value="hogar">Articulos para el hogar</option>
+				</select>
+			</label>
+			<br><br>
+			<label>Precio<br> 
+				<input type="number" step="0.01" min="0" placeholder="$" name="price">
+			</label>
+			<br><br>
+			<label>Descripción<br> 
+				<textarea name="Descripción" rows="3" placeholder="Ingresa una breve descripción del producto"></textarea>
+			</label>
+		</div>
+		<br>
+		<div>
+			<label>Caracteristicas<br>
+				<label><input type="checkbox" id="car1" value="perecedero"> Perecedero</label>
+				<label><input type="checkbox" id="car2" value="refrigeracion"> Refrigeración</label>
+				<label><input type="checkbox" id="car3" value="voluminoso"> Voluminoso<br></label><br>
+				<label><input name="caracteristica" type="radio" id="car4" value="Kg"/> Kg </label><br>
+				<label><input name="caracteristica" type="radio" id="car5" value="litro"/> Litros </label><br>
+				<label><input name="caracteristica" type="radio" id="car6" value="unidad"/> Unidades</label><br>	
+			</label><br>
+		</div>		
+	</div>
+	<div>
+		<br>
+		<button submit="enviar"><strong>CARGAR</strong></button>
+	</div>
+	<br><br>
+
+</body>
+<footer>
+<div>
+
+<h1><u>Secciones</u></h1>
+<ul>
+	<li><a href="carga.html">Cargar producto</a></li>
+	<li><a href="lista.html">Lista de productos</a></li>
+</ul>
+
+</div>
+</footer>
+</html>
