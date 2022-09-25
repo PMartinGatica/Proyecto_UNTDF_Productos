@@ -135,4 +135,45 @@ nav a {
 nav a:hover {
   background-color: #3BA63B;
   color: #CF4A4A;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin: 1em 0;
+  font-weight: bold;
+}
+
+#Productos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+#Productos .Card {
+  background-color: #faebeb;
+  height: 300px;
+  width: 250px;
+  margin-top: 1em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+  border: 2px solid black;
+}
+#Productos .Card img {
+  height: 50%;
+  width: 50%;
+}
+#Productos .Card p {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+#Productos .Card a {
+  color: black;
+  text-decoration: none;
+  background-color: #9edc9e;
+  padding: 1em;
 }/*# sourceMappingURL=style.css.map */
