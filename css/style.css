@@ -176,4 +176,77 @@ h1 {
   text-decoration: none;
   background-color: #9edc9e;
   padding: 1em;
+}
+
+::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0;
+}
+form input, form textarea {
+  text-align: left;
+  margin: 1em 0;
+  padding: 1em;
+  border: 2px solid black;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #3BA63B;
+}
+form #btn {
+  margin: 10px 0;
+  padding: 1em;
+  border-radius: 1em;
+  border: 2px solid black;
+  background: #3BA63B;
+}
+
+#cr {
+  text-align: center;
+  font-size: 1em;
+  margin: 1em 0;
+  background: #CF4A4A;
+  padding: 0.5%;
+  font-weight: bold;
+}
+
+.informacion {
+  display: flex;
+  justify-content: space-around;
+  background: gainsboro;
+}
+.informacion .info {
+  height: 300px;
+  width: 250px;
+  margin-top: 1em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+  border: 2px solid black;
+}
+.informacion .a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 1em;
+  font-size: 1em;
 }/*# sourceMappingURL=style.css.map */
