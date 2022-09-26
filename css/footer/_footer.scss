@@ -1,0 +1,61 @@
+.formulario {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 3rem;
+  }
+  
+  legend {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  form input,
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e1e1e1;
+    margin-bottom: 2rem;
+    text-align: left;
+    font-weight: bold;
+    background: rgb(236, 236, 236);
+  }
+  
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+  }
+  
+  .btn {
+    background: rgb(236, 236, 236);
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1rem;
+    width: 80%;
+    text-align: center;
+    border: none;
+    display: block;
+    margin: 0 50px;
+  }
+  
+  .footer{
+    padding: 2rem;
+    background: rgb(236, 236, 236);
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 10px;
+  }
+  
+  #pie{
+    display: block;
+    text-align: center;
+    padding: 1px;
+    background: grey;
+    color: black;
+  }

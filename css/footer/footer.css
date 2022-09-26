@@ -1,13 +1,3 @@
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
 .formulario {
   width: 100%;
   max-width: 600px;
@@ -80,4 +70,4 @@ textarea {
   padding: 1px;
   background: grey;
   color: black;
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=footer.css.map */
