@@ -143,13 +143,15 @@ h1 {
   margin: 1em 0;
   font-weight: bold;
 }
+
 #Ofertas {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
 }
-.Targ {  
+
+.Targ {
   background-color: #fcfcfc;
   height: 200px;
   width: 150px;
@@ -162,19 +164,26 @@ h1 {
   padding: 1em;
   border: 2px solid rgb(0, 0, 0);
 }
-.Targ p {   
+
+.Targ p {
   font-size: 1.5em;
   font-weight: bold;
 }
+
 .Targ img {
   width: 5rem;
- }
+}
+
 .Targ a {
   color: rgb(0, 0, 0);
   text-decoration: none;
   background-color: #CF4A4A;
   padding: 1em;
-  }
+}
+
+.foto img {
+  max-width: 20rem;
+}
 
 #Productos {
   display: flex;
@@ -281,5 +290,4 @@ form #btn {
   font-weight: bold;
   padding: 1em;
   font-size: 1em;
-}/*# sourceMappingURL=style.css.map */
 }/*# sourceMappingURL=style.css.map */
