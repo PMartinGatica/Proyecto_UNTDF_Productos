@@ -109,3 +109,75 @@ h1 {
     }
   }
 }
+
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+
+
+form {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0;
+
+  input,textarea {
+    text-align: left;
+    margin: 1em 0;
+    padding: 1em;
+    border: 2px solid black;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: $secondary-color;
+  }
+  
+
+  #btn {
+    margin: 10px 0;
+    padding: 1em;
+    border-radius: 1em;
+    border: 2px solid black;
+    background: $secondary-color;
+  }
+}
+
+#cr {
+  text-align: center;
+  font-size: 1em;
+  margin: 1em 0;
+  background: $primary-color;
+  padding: 0.5%;
+  font-weight: bold;
+}
+
+.informacion {
+  display: flex;
+  justify-content: space-around;
+  background: gainsboro;
+
+  .info {
+    height: 300px;
+    width: 250px;
+    margin-top: 1em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+    border: 2px solid black;
+  }
+
+  .a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 1em;
+    font-size: 1em;
+  }
+}
