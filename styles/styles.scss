@@ -1,0 +1,36 @@
+.card {
+  .timeText {
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+
+  .precipitationText {
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .temperatureText {
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+
+  .temperatureSensationText {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .windTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .windDirection {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
+#CurrentDateTime {
+  background-color: #b2ce9d !important;
+}

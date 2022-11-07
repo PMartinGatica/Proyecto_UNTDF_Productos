@@ -1,1 +1,29 @@
-/*# sourceMappingURL=styles.css.map */
+.card .timeText {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.card .precipitationText {
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+}
+.card .temperatureText {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.card .temperatureSensationText {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.card .windTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.card .windDirection {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#CurrentDateTime {
+  background-color: #b2ce9d !important;
+}/*# sourceMappingURL=styles.css.map */

@@ -7,13 +7,41 @@
     <link
       rel="stylesheet"
       href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
     <title>Clima</title>
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid p-5">
+      <div class="row mb-5">
+        <div class="col-5">
+          <input
+            type="number"
+            class="form-control"
+            id="latitud"
+            placeholder="Latitud"
+            step=".01" />
+        </div>
+        <div class="col-5">
+          <input
+            type="number"
+            class="form-control"
+            id="longitude"
+            placeholder="Longitud"
+            step=".01" />
+        </div>
+        <div class="col-2">
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="GetForecast(latitud.value, longitude.value)">
+            Buscar
+          </button>
+        </div>
+        <div id="latLongHelp" class="form-text">Ushuaia(-54.82, -68.36)</div>
+      </div>
       <div id="WeatherContainer"></div>
     </div>
-    <script src="./scripts/script.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
