@@ -1,3 +1,21 @@
+const GetCurrentDate = () => {
+  let currentDate = new Date().toLocaleString("en-US", {
+    hour12: false,
+  });
+  let day = currentDate.split("/")[1].padStart(2, 0);
+  let month = currentDate.split("/")[0].padStart(2, 0);
+  let year = currentDate.split("/")[2].split(",")[0];
+  let hour = currentDate
+    .split(":")[0]
+    .split(",")[1]
+    .replace(" ", "")
+    .padStart(2, 0);
+  currentDate = `${year}-${month}-${day}T${hour}:00`;
+  return currentDate;
+};
+
+const CurrentDate = GetCurrentDate();
+
 const GetForecast = (latitude, longitude) => {
   // Ushuaia -54.82 -68.36
   if (latitude == "" || longitude == "") {
@@ -10,23 +28,8 @@ const GetForecast = (latitude, longitude) => {
     .then((response) => response.json())
     .then((json) => {
       RenderWeather(json.hourly);
+      document.getElementById("CurrentDateTime").scrollIntoView(true);
     });
-
-  setTimeout(() => {
-    document.getElementById("CurrentDateTime").scrollIntoView(true);
-  }, 1000);
-};
-
-const GetCurrentDate = () => {
-  let currentDate = new Date().toLocaleString({
-    timeZone: "America/Argentina/Buenos_Aires",
-  });
-  let day = currentDate.split("/")[0].padStart(2, 0);
-  let month = currentDate.split("/")[1].padStart(2, 0);
-  let year = currentDate.split("/")[2].split(",")[0];
-  let hour = currentDate.split(":")[0].split(",")[1].replace(" ", "");
-  currentDate = `${year}-${month}-${day}T${hour}:00`;
-  return currentDate;
 };
 
 const RenderWeather = (hourlyWeathers) => {
@@ -80,7 +83,7 @@ const RenderWeatherPerDay = (
 };
 
 const GetDescriptionByPrecipitations = (precipitations) => {
-  if (precipitations === 0) return "Soleado";
+  if (precipitations === 0) return "Despejado";
   if (precipitations <= 15) return "Lluvias débiles";
   if (precipitations <= 30) return "Lluvia";
   if (precipitations <= 60) return "Lluvias muy fuertes";
@@ -89,13 +92,13 @@ const GetDescriptionByPrecipitations = (precipitations) => {
 
 const GetWeatherIconByPrecipitations = (precipitations, dateTime) => {
   let hour = dateTime.split("T")[1].split(":")[0];
-  let isCurrentTime = dateTime == GetCurrentDate() ? true : false;
+  let isCurrentTime = dateTime == CurrentDate ? true : false;
   let isDay = hour >= 6 && hour <= 18 ? true : false;
   if (isDay) {
     if (precipitations === 0) {
       if (isCurrentTime)
-        return `src='./images/icons/animated/clear-day.svg' alt='soleado'`;
-      return `src='./images/icons/static/clear-day.svg' alt='soleado'`;
+        return `src='./images/icons/animated/clear-day.svg' alt='Despejado'`;
+      return `src='./images/icons/static/clear-day.svg' alt='Despejado'`;
     }
     if (precipitations <= 15) {
       if (isCurrentTime)
@@ -118,8 +121,8 @@ const GetWeatherIconByPrecipitations = (precipitations, dateTime) => {
   }
   if (precipitations === 0) {
     if (isCurrentTime)
-      return `src='./images/icons/animated/clear-night.svg' alt='soleado'`;
-    return `src='./images/icons/static/clear-night.svg' alt='soleado'`;
+      return `src='./images/icons/animated/clear-night.svg' alt='Despejado'`;
+    return `src='./images/icons/static/clear-night.svg' alt='Despejado'`;
   }
   if (precipitations <= 15) {
     if (isCurrentTime)
@@ -155,7 +158,7 @@ const GetHourWeatherCard = (
   winddirection_10m
 ) => {
   let result = "";
-  dateTime == GetCurrentDate()
+  dateTime == CurrentDate
     ? (result +=
         "<div id='CurrentDateTime' class='card currentTime col-12 col-md-5 col-xxl-2 shadow bg-body rounded p-1 m-2'>")
     : (result +=
@@ -181,7 +184,9 @@ const GetHourWeatherCard = (
                             )}
                             class="img-fluid"
                             width="200" />
-                          <p class="precipitationText">precipitaciones</p>
+                          <p class="precipitationText">${GetDescriptionByPrecipitations(
+                            precipitation
+                          )}</p>
                           <p class="precipitationText">${precipitation} mm</p>
                         </div>
                       </div>

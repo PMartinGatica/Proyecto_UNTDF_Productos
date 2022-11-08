@@ -8,7 +8,7 @@
   justify-content: center;
 }
 .card .temperatureText {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: bolder;
 }
 .card .temperatureSensationText {
