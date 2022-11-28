@@ -1,0 +1,32 @@
+<div class="row mt-3">
+    <div class="col-12">
+        <input type="text" class="form-control" [(ngModel)]="wordFilter" (input)="onSearchInput()" placeholder="Buscar">
+        <table class="table table-hover caption-top">
+            <caption class="caption">
+                {{ province ? province.name : "" }}
+            </caption>
+            <thead>
+                <tr>
+                    <th>EAN</th>
+                    <th>Descripcion</th>
+                    <th>
+                        Precio <i class="fa-solid"
+                            [ngClass]="{'fa-arrow-up':orderDesc == false, 'fa-arrow-down':orderDesc == true}"
+                            (click)="sortByPrice()"></i>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let price of productsFiltered">
+                    <td>
+                        <ngx-barcode6 [bc-format]="'EAN13'" [bc-value]="price.ean" [bc-display-value]="true"
+                            [bc-height]="75">
+                        </ngx-barcode6>
+                    </td>
+                    <td>{{ price.description }}</td>
+                    <td>${{ price.price }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

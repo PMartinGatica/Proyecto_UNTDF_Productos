@@ -1,0 +1,122 @@
+[
+    {
+        "id": 2,
+        "nombre": "Buenos Aires",
+        "api": "buenos-aires.json"
+    },
+    {
+        "id": 3,
+        "nombre": "CABA",
+        "api": "caba.json"
+    },
+    {
+        "id": 4,
+        "nombre": "Catamarca",
+        "api": "catamarca.json"
+    },
+    {
+        "id": 5,
+        "nombre": "Chaco",
+        "api": "chaco.json"
+    },
+    {
+        "id": 6,
+        "nombre": "Chubut",
+        "api": "chubut.json"
+    },
+    {
+        "id": 7,
+        "nombre": "Córdoba",
+        "api": "cordoba.json"
+    },
+    {
+        "id": 8,
+        "nombre": "Corrientes",
+        "api": "corrientes.json"
+    },
+    {
+        "id": 9,
+        "nombre": "Entre Ríos",
+        "api": "entre-rios.json"
+    },
+    {
+        "id": 10,
+        "nombre": "Formosa",
+        "api": "formosa.json"
+    },
+    {
+        "id": 11,
+        "nombre": "Jujuy",
+        "api": "jujuy.json"
+    },
+    {
+        "id": 12,
+        "nombre": "La Pampa",
+        "api": "la-pampa.json"
+    },
+    {
+        "id": 13,
+        "nombre": "La Rioja",
+        "api": "la-rioja.json"
+    },
+    {
+        "id": 14,
+        "nombre": "Mendoza",
+        "api": "mendoza.json"
+    },
+    {
+        "id": 15,
+        "nombre": "Misiones",
+        "api": "misiones.json"
+    },
+    {
+        "id": 16,
+        "nombre": "Neuquén",
+        "api": "neuquen.json"
+    },
+    {
+        "id": 17,
+        "nombre": "Río Negro",
+        "api": "rio-negro.json"
+    },
+    {
+        "id": 18,
+        "nombre": "Salta",
+        "api": "salta.json"
+    },
+    {
+        "id": 19,
+        "nombre": "San Juan",
+        "api": "san-juan.json"
+    },
+    {
+        "id": 20,
+        "nombre": "San Luis",
+        "api": "san-luis.json"
+    },
+    {
+        "id": 21,
+        "nombre": "Santa Cruz",
+        "api": "santa-cruz.json"
+    },
+    {
+        "id": 22,
+        "nombre": "Santa Fe",
+        "api": "santa-fe.json"
+    },
+    {
+        "id": 23,
+        "nombre": "Santiago del Estero",
+        "api": "santiago-del-estero.json"
+    },
+    {
+        "id": 24,
+        "nombre": "Tierra del Fuego",
+        "api": "tierra-del-fuego.json"
+    },
+    {
+        "id": 25,
+        "nombre": "Tucumán",
+        "api": "tucuman.json"
+    }
+]
