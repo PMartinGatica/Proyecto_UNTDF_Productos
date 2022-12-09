@@ -84,6 +84,10 @@ export class ProductListComponent implements OnInit {
     this.doFiltersAndSorts();
   }
 
+  goBack() {
+    window.history.back();
+  }
+
   private doFiltersAndSorts() {
     this.filterByTerm();
     this.filterByPrice();
