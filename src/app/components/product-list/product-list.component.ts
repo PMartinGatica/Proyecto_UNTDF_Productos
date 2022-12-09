@@ -54,10 +54,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onSearchInput() {
-    if (this.wordFilter.length == 0) {
-      this.productsFiltered = this.products;
-      return;
-    }
+    this.doFiltersAndSorts();
   }
 
   changeSortOrder() {
@@ -66,14 +63,22 @@ export class ProductListComponent implements OnInit {
   }
 
   onMinPriceInput(input: any) {
-    if (!input.value) return;
+    if (input.value == "") {
+      this.minPrice = 0;
+      this.doFiltersAndSorts();
+      return;
+    }
 
     this.minPrice = parseInt(input.value);
     this.doFiltersAndSorts();
   }
 
   onMaxPriceInput(input: any) {
-    if (!input.value) return;
+    if (input.value == "") {
+      this.maxPrice = 0;
+      this.doFiltersAndSorts();
+      return;
+    }
 
     this.maxPrice = parseInt(input.value);
     this.doFiltersAndSorts();
@@ -88,6 +93,15 @@ export class ProductListComponent implements OnInit {
   private filterByPrice() {
     if (this.minPrice == 0 && this.maxPrice == 0) return;
     if (this.minPrice > this.maxPrice && this.maxPrice != 0) return;
+
+    if (this.minPrice == 0) {
+      this.productsFiltered = this.productsFiltered.filter(product => product.price <= this.maxPrice);
+      return;
+    }
+    if (this.maxPrice == 0) {
+      this.productsFiltered = this.productsFiltered.filter(product => product.price >= this.minPrice);
+      return;
+    }
     this.productsFiltered = this.productsFiltered.filter(product => product.price >= this.minPrice && product.price <= this.maxPrice);
   }
 
@@ -119,6 +133,10 @@ export class ProductListComponent implements OnInit {
   }
 
   private filterByTerm() {
+    if (this.wordFilter == "") {
+      this.productsFiltered = this.products;
+      return;
+    }
     if (this.eanRegex.test(this.wordFilter)) {
       this.productsFiltered = this.products.filter(product => product.ean == parseInt(this.wordFilter));
       return;

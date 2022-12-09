@@ -13,12 +13,12 @@
                 <div class="text-center mb-1"><strong>Rango precio</strong></div>
                 <div class="row">
                     <div class="col-12 col-sm-6 mb-1">
-                        <input type="number" class="form-control" [(ngModel)]="minPrice" min="0" [max]="maxPrice"
-                            placeholder="Minimo" (input)="onMinPriceInput($event.target)">
+                        <input type="number" class="form-control" [(ngModel)]="minPrice" placeholder="Minimo"
+                            (input)="onMinPriceInput($event.target)">
                     </div>
                     <div class="col-12 col-sm-6 mb-1">
-                        <input type="number" class="form-control" [(ngModel)]="maxPrice" [min]="minPrice"
-                            placeholder="Maximo" (input)="onMaxPriceInput($event.target)">
+                        <input type="number" class="form-control" [(ngModel)]="maxPrice" placeholder="Maximo"
+                            (input)="onMaxPriceInput($event.target)">
                     </div>
                 </div>
             </div>
