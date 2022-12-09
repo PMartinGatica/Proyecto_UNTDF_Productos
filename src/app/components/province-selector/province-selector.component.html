@@ -1,0 +1,14 @@
+<div class="border border-dark rounded rounded-3 p-3 m-3">
+    <form>
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3 col-lg-2" *ngFor="let province of provinces">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id={{province.id}}
+                        (change)="onProvinceSelect($event.target)" [checked]="province.id == selectedProvinceId">
+                    <label class="form-check-label text-break" for={{province.id}}> {{province.name}} </label>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-primary col-12" [routerLink]="['/products',selectedProvinceId]">Siguiente</a>
+    </form>
+</div>

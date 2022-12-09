@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg bg-info sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/']">Precios Justos</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="me-auto"></div>
+            <div class="d-flex">
+                <a [routerLink]="['/']" class="btn btn-primary me-3"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a [routerLink]="['province']" class="btn btn-primary me-3"><i class="fa-solid fa-map-location-dot"></i>
+                    Provincias</a>
+            </div>
+        </div>
+    </div>
+</nav>
