@@ -9,11 +9,12 @@
             <div class="h2 text-center text-decoration-underline">
                 Precio: ${{ product && product.price ? product.price : "" }}</div>
         </div>
-        <div class="col-12 col-sm-4" *ngIf="productDetails && productDetails.brands">
+        <div class="col-12 col-sm-4" *ngIf="productDetails && productDetails.brands && productDetails.brands != '' ">
             <div class="h2 text-center">
                 Marca: {{ productDetails.brands }}</div>
         </div>
-        <div class="col-12 col-sm-4" *ngIf="productDetails && productDetails.quantity">
+        <div class="col-12 col-sm-4"
+            *ngIf="productDetails && productDetails.quantity && productDetails.quantity != '' ">
             <div class="h2 text-center">
                 Cantidad: {{ productDetails.quantity }}</div>
         </div>
@@ -51,7 +52,8 @@
             EAN: {{ product && product.ean ? product.ean : "" }}
         </div>
         <hr />
-        <div class="col-12 col-sm-6" *ngIf="productDetails && productDetails.ingredients">
+        <div class="col-12 col-sm-6"
+            *ngIf="productDetails && productDetails.ingredients && productDetails.ingredients.length">
             <table class="table">
                 <thead>
                     <tr>
@@ -67,7 +69,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-12 col-sm-6" *ngIf="productDetails && productDetails.nutriscore">
+        <div class="col-12 col-sm-6"
+            *ngIf="productDetails && productDetails.nutriscore && productDetails.nutriscore != ''">
             <div class="h3 text-center">Nutriscore</div>
             <div class="row border border-dark border-1">
                 <div class="col d-flex justify-content-center nutriscoreA"
