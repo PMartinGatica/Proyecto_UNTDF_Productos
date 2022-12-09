@@ -24,6 +24,16 @@ export class ProductListComponent implements OnInit {
 
   orderDesc: boolean = false;
 
+  itemsPerPage: number = 20;
+
+  currentPage: number = 1;
+
+  minPrice: number = 0;
+
+  maxPrice: number = 0;
+
+  eanRegex: RegExp;
+
   constructor(
     private productsDataservice: ProductDataService,
     private provinceDataService: ProvincesDataService,
@@ -31,33 +41,16 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.eanRegex = new RegExp("^\\d{13}$");
     try {
-      let id = this.route.snapshot.paramMap.get("id");
+      let id = this.route.snapshot.paramMap.get("provinceId");
       if (id) {
         this.provinceId = Number.parseInt(id);
         this.loadSelectedProvince();
       }
     } catch {
-      console.log(this.route.snapshot.paramMap.get("id"));
+      console.log(this.route.snapshot.paramMap.get("provinceId"));
     }
-  }
-
-  loadSelectedProvince() {
-    this.provinceDataService.getProvinceById(this.provinceId).subscribe(
-      (res: IProvince) => {
-        if (!res) return;
-        this.province = res;
-        this.loadAllPrices();
-      }
-    )
-  }
-
-  loadAllPrices() {
-    this.productsDataservice.getPricesByProvinceUrl(this.province.url)
-      .subscribe((res: IProduct[]) => {
-        this.products = res;
-        this.productsFiltered = res;
-      })
   }
 
   onSearchInput() {
@@ -65,21 +58,89 @@ export class ProductListComponent implements OnInit {
       this.productsFiltered = this.products;
       return;
     }
-    if (this.wordFilter.length < 3) return;
+  }
+
+  changeSortOrder() {
+    this.orderDesc = !this.orderDesc;
+    this.doFiltersAndSorts();
+  }
+
+  onMinPriceInput(input: any) {
+    if (!input.value) return;
+
+    this.minPrice = parseInt(input.value);
+    this.doFiltersAndSorts();
+  }
+
+  onMaxPriceInput(input: any) {
+    if (!input.value) return;
+
+    this.maxPrice = parseInt(input.value);
+    this.doFiltersAndSorts();
+  }
+
+  private doFiltersAndSorts() {
+    this.filterByTerm();
+    this.filterByPrice();
+    this.sortByPrice();
+  }
+
+  private filterByPrice() {
+    if (this.minPrice == 0 && this.maxPrice == 0) return;
+    if (this.minPrice > this.maxPrice && this.maxPrice != 0) return;
+    this.productsFiltered = this.productsFiltered.filter(product => product.price >= this.minPrice && product.price <= this.maxPrice);
+  }
+
+  private sortByPrice() {
+    if (!this.orderDesc) {
+      this.productsFiltered = this.productsFiltered.sort((a, b) => {
+        if (a.price > b.price) {
+          return 1;
+        }
+        if (a.price < b.price) {
+          return -1;
+        }
+        return 0;
+      });
+      return;
+    }
+
+    if (this.orderDesc) {
+      this.productsFiltered = this.productsFiltered.sort((a, b) => {
+        if (a.price < b.price) {
+          return 1;
+        }
+        if (a.price > b.price) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+  }
+
+  private filterByTerm() {
+    if (this.eanRegex.test(this.wordFilter)) {
+      this.productsFiltered = this.products.filter(product => product.ean == parseInt(this.wordFilter));
+      return;
+    }
     this.productsFiltered = this.products.filter(product => product.description.toLowerCase().includes(this.wordFilter.toLowerCase()));
   }
 
-  sortByPrice() {
-    this.orderDesc = !this.orderDesc;
-    if (this.orderDesc) {
-      this.productsFiltered = this.productsFiltered.sort((a, b) => {
-        return Number.parseFloat(a.price) > Number.parseFloat(b.price) ? 1 : -1;
-      })
-      return;
-    }
-    this.productsFiltered = this.productsFiltered.sort((a, b) => {
-      return Number.parseFloat(a.price) > Number.parseFloat(b.price) ? -1 : 1;
-    })
+  private loadSelectedProvince() {
+    this.provinceDataService.getProvinceById(this.provinceId).subscribe(
+      (res: IProvince) => {
+        if (!res) return;
+        this.province = res;
+        this.loadAllProducts();
+      }
+    )
   }
 
+  private loadAllProducts() {
+    this.productsDataservice.getProductsByProvinceUrl(this.province.url)
+      .subscribe((res: IProduct[]) => {
+        this.products = res;
+        this.productsFiltered = res;
+      })
+  }
 }

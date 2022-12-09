@@ -1,5 +1,5 @@
 export interface IProduct {
-    ean: string,
+    ean: number,
     description: string,
-    price: string
+    price: number
 }

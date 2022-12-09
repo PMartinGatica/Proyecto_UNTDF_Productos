@@ -1,0 +1,86 @@
+<div class="container mb-5">
+    <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-primary" (click)="goBack()"><i class="fa-solid fa-left-long"></i> Volver</button>
+    </div>
+    <div class="h1 text-center">{{ product ? product.description : "" }}</div>
+    <div class="row justify-content-center align-items-center">
+        <hr />
+        <div class="col-12">
+            <div class="h2 text-center text-decoration-underline">
+                Precio: ${{ product && product.price ? product.price : "" }}</div>
+        </div>
+        <div class="col-12 col-sm-4" *ngIf="productDetails && productDetails.brands">
+            <div class="h2 text-center">
+                Marca: {{ productDetails.brands }}</div>
+        </div>
+        <div class="col-12 col-sm-4" *ngIf="productDetails && productDetails.quantity">
+            <div class="h2 text-center">
+                Cantidad: {{ productDetails.quantity }}</div>
+        </div>
+        <div class="col-12" *ngIf="productDetails && productDetails.status">
+            <hr />
+            <table class="table">
+                <caption class="caption-top">
+                    <div class="h3 text-center">Fotos</div>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Frente</th>
+                        <th>Ingredientes</th>
+                        <th>Informacion nutricional</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img class="img-fluid" [src]="productDetails.images.imgFrontUrl" alt="imagen frontal"></td>
+                        <td><img class="img-fluid" [src]="productDetails.images.imgIngredientsUrl"
+                                alt="imagen ingredientes">
+                        </td>
+                        <td><img class="img-fluid" [src]="productDetails.images.imgNutritionUrl"
+                                alt="imagen informacion nutricional"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-sm-6">
+            <ngx-barcode6 *ngIf="product && product.ean" [bc-format]="'EAN13'" [bc-value]="product.ean.toString()"
+                [bc-display-value]="true" [bc-height]="75">
+            </ngx-barcode6>
+        </div>
+        <div class="col-12 col-sm-6">
+            EAN: {{ product && product.ean ? product.ean : "" }}
+        </div>
+        <hr />
+        <div class="col-12 col-sm-6" *ngIf="productDetails && productDetails.ingredients">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ingredientes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ingredient of productDetails.ingredients">
+                        <td>
+                            {{ ingredient }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-sm-6" *ngIf="productDetails && productDetails.nutriscore">
+            <div class="h3 text-center">Nutriscore</div>
+            <div class="row border border-dark border-1">
+                <div class="col d-flex justify-content-center nutriscoreA"
+                    [ngClass]="{ 'border border-dark border-5' : productDetails.nutriscore == 'A' }">A</div>
+                <div class="col d-flex justify-content-center nutriscoreB"
+                    [ngClass]="{ 'border border-dark border-5' : productDetails.nutriscore == 'B' }">B</div>
+                <div class="col d-flex justify-content-center nutriscoreC"
+                    [ngClass]="{ 'border border-dark border-5' : productDetails.nutriscore == 'C' }">C</div>
+                <div class="col d-flex justify-content-center nutriscoreD"
+                    [ngClass]="{ 'border border-dark border-5' : productDetails.nutriscore == 'D' }">D</div>
+                <div class="col d-flex justify-content-center nutriscoreE"
+                    [ngClass]="{ 'border border-dark border-5' : productDetails.nutriscore == 'E' }">E</div>
+            </div>
+        </div>
+    </div>
+</div>
